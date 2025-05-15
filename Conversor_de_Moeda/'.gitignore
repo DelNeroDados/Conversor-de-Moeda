@@ -1,22 +1,40 @@
-# Diretórios de build e binários
+# -----------------------
+# Build output
+# -----------------------
 /target/
 /out/
+/build/
 /*.class
 
-# IDEs
+# -----------------------
+# IDE files
+# -----------------------
 /.idea/
 /*.iml
+.vscode/
 
+# -----------------------
 # Logs
+# -----------------------
 /logs/
 /*.log
 
-# Arquivos de sistema
+# -----------------------
+# Sistema operacional
+# -----------------------
 .DS_Store
 Thumbs.db
 
-# Favoritos gerados localmente
+# -----------------------
+# Arquivos gerados em tempo de execução
+# -----------------------
 /favorites.txt
+/src/main/resources/application.properties
 
-# Configurações de ambiente
-/.env
+# Se tiver template:
+/src/main/resources/application-example.properties
+
+# -----------------------
+# Variáveis de ambiente
+# -----------------------
+.env
