@@ -1,0 +1,4 @@
+
+USD->BBD
+LKR->BRL
+BRL->INR
