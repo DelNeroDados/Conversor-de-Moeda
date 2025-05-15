@@ -20,7 +20,7 @@ O **Conversor de Moedas Profissional** é uma aplicação Java completa que aten
 1. **Java 17+** (ou JDK 11+) instalado  
    ```bash
    java -version
-````
+   ````
 
 2. **Maven 3.6+** (ou Gradle 6+)
 
@@ -129,10 +129,11 @@ com.delnero.conversormoeda
 ```
 
 ---
-
+## Melhorias Futuras
+---
 ## 🔍 Testes Unitários
 
-* **`ApiClienteTest`**: Mock HTTP com Mockito; testa sucesso 200 e falha 4xx/5xx.
+* **`ApiClienteTest`**: Mock HTTP com Mockito;
 * **`CalcularTaxasTest`**: Verifica resultado de `montante × taxa`.
 * **`FiltroDeMoedasTest`**: Garante que nomes inválidos são filtrados.
 
