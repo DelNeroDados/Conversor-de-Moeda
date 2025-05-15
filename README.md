@@ -46,44 +46,72 @@ O **Conversor de Moedas Profissional** é uma aplicação Java completa que aten
 2. **Crie o `.gitignore`** (já incluído no repo):
 
    ```gitignore
+   # -----------------------
+   # Build output
+   # -----------------------
    /target/
+   /out/
+   /build/
+   /*.class
+   
+   # -----------------------
+   # IDE files
+   # -----------------------
+   /.idea/
+   /*.iml
+   .vscode/
+   
+   # -----------------------
+   # Logs
+   # -----------------------
+   /logs/
+   /*.log
+   
+   # -----------------------
+   # Sistema operacional
+   # -----------------------
+   .DS_Store
+   Thumbs.db
+   
+   # -----------------------
+   # Arquivos gerados em tempo de execução
+   # -----------------------
+   /favorites.txt
+   /src/main/resources/application.properties
+   
+   # Se tiver template:
+   /src/main/resources/application-example.properties
+   
+   # -----------------------
+   # Variáveis de ambiente
+   # -----------------------
+   .env
    ```
 
-/out/
-/*.class
-/.idea/
-/*.iml
-/logs/
-/\*.log
-favorites.txt
-src/main/resources/application.properties
-
-```
-
 3. **Estrutura de pastas** (Maven padrão):
-```
-
-Test/
-├── pom.xml
-├── .gitignore
-└── src/
-├── main/
-│   ├── java/com/delnero/conversormoeda/…
-│   └── resources/application.properties
-└── test/java/com/delnero/conversormoeda/…
-
-````
+   ```
+   
+   Test/
+   ├── pom.xml
+   ├── .gitignore
+   └── src/
+   ├── main/
+   │   ├── java/com/delnero/conversormoeda/…
+   │   └── resources/application.properties
+   └── test/java/com/delnero/conversormoeda/…
+   
+   ````
 
 4. **Externalize a chave**  
 Crie **`src/main/resources/application.properties`**:
 ```properties
-exchange.api.key=AD2405BE8DFB3FCA89729582
+exchange.api.key=CHAVE_AQUI
 ````
 
 *Ou* defina variável de ambiente:
 
 ```bash
-export EXCHANGE_API_KEY=AD2405BE8DFB3FCA89729582
+export EXCHANGE_API_KEY=CHAVE_AQUI
 ```
 
 5. **Compile e rode os testes**
@@ -111,22 +139,22 @@ export EXCHANGE_API_KEY=AD2405BE8DFB3FCA89729582
 
 ## 📂 Organização de Pacotes
 
-```text
-com.delnero.conversormoeda
-├── http/
-│   └── ApiCliente.java           # cliente HTTP e desserialização JSON
-├── model/
-│   └── ConverterMoeda.java       # modelo de domínio das taxas
-├── service/
-│   ├── CalcularTaxas.java        # regra de negócio “valor × taxa”
-│   ├── FiltroDeMoedas.java       # lógica de filtragem de moedas
-│   ├── ConverterMoedaApi.java    # record para /latest/{base}
-│   └── ConverterMoedaLivreApi.java # record para resultado manual
-├── console/
-│   └── ConvertendoNoPrompt.java  # modo texto com menu e favoritos
-└── ui/
-    └── CurrencyConverterUI.java  # interface Swing amigável
-```
+   ```text
+   com.delnero.conversormoeda
+   ├── http/
+   │   └── ApiCliente.java           # cliente HTTP e desserialização JSON
+   ├── model/
+   │   └── ConverterMoeda.java       # modelo de domínio das taxas
+   ├── service/
+   │   ├── CalcularTaxas.java        # regra de negócio “valor × taxa”
+   │   ├── FiltroDeMoedas.java       # lógica de filtragem de moedas
+   │   ├── ConverterMoedaApi.java    # record para /latest/{base}
+   │   └── ConverterMoedaLivreApi.java # record para resultado manual
+   ├── console/
+   │   └── ConvertendoNoPrompt.java  # modo texto com menu e favoritos
+   └── ui/
+       └── CurrencyConverterUI.java  # interface Swing amigável
+   ```
 
 ---
 ## Melhorias Futuras
@@ -137,9 +165,9 @@ com.delnero.conversormoeda
 * **`CalcularTaxasTest`**: Verifica resultado de `montante × taxa`.
 * **`FiltroDeMoedasTest`**: Garante que nomes inválidos são filtrados.
 
-```bash
-mvn test
-```
+   ```bash
+   mvn test
+   ```
 
 ---
 
@@ -173,13 +201,13 @@ mvn test
 
 Exemplo em `ConvertendoNoPrompt`:
 
-```java
-try {
-    api.buscaLivre(base, target, amount);
-} catch (IOException | InterruptedException | CustomApiException e) {
-    logger.error("Falha na conversão", e);
-}
-```
+   ```java
+   try {
+       api.buscaLivre(base, target, amount);
+   } catch (IOException | InterruptedException | CustomApiException e) {
+       logger.error("Falha na conversão", e);
+   }
+   ```
 
 ---
 
