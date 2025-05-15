@@ -1,7 +1,5 @@
 # Conversor de Moedas Profissional
 
----
-
 ## 📖 Descrição do Projeto
 
 O **Conversor de Moedas Profissional** é uma aplicação Java completa que atende tanto ao modo **console** quanto à interface **gráfica Swing**, com recursos avançados:
